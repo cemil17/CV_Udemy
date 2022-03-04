@@ -1,0 +1,20 @@
+﻿@model CV_Udemy.Models.Entity.TBL_Hobby
+
+@{
+    ViewBag.Title = "UpdateHobby";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4 style="font-family: 'Itim' ">Hobi Güncelleme Sayfası</h4>
+
+<form class="form-group" method="post">
+    <p style="font-family: 'Itim' ">ID</p>
+    @Html.TextBoxFor(x => x.ID, new { disabled = "disabled", @class = "form-control", @style = "font-family:'The Great Escape'" })
+    <br />
+    <p style="font-family: 'Itim' ">Yetenek</p>
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    <br />
+    <button class="btn btn-success" style="font-family:'The Great Escape'">Güncelle</button>
+
+</form>

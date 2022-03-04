@@ -1,0 +1,73 @@
+﻿@using CV_Udemy.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<TBL_Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+</head>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- /.col -->
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="tab-pane" id="timeline">
+                                <!-- The timeline -->
+                                <div class="timeline timeline-inverse">
+                                    @foreach (var item in Model)
+                                    {
+
+
+                                        <!-- timeline time label -->
+                                        <div class="time-label" style="font-family: 'Itim' ">
+                                            <span class="bg-warning">
+                                                @(((DateTime)item.DateTime).ToString("dd-MMMM-yyyy"))
+
+                                            </span>
+                                        </div>
+
+                                        <div>
+                                            <i class="fas fa-comments bg-warning"></i>
+                                            <div class="timeline-item">
+                                                <span class="time"><i class="far fa-clock"></i> @item.Mail</span>
+                                                <h3 class="timeline-header" style="font-family: 'Itim' ">
+                                                    <a href="mailto:@item.Mail">@item.Name-@item.Surname</a> /  @item.Topic
+                                                </h3>
+                                                <div class="timeline-body" style="font-family: 'Itim' ">
+                                                    @item.Message
+                                                </div>
+                                                @*<div class="timeline-footer">
+                                                        <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>
+                                                    </div>*@
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                @Html.PagedListPager((IPagedList)Model, number => Url.Action("Index", new { number }))
+                            </div>
+                        </div>
+                        <!-- /.tab-content -->
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+        </div>
+
+    </section>
+</body>
+</html>

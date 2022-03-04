@@ -1,0 +1,118 @@
+﻿@using CV_Udemy.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<TBL_Skills>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{ string color = ""; }
+@{ string labelColor = "";}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title" style="font-family: 'Itim' ">Yetenek Listem</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <a href="/Skills/NewSkills/" style="font-family:'The Great Escape'"
+                                   class="btn btn-light">Yetenek Ekle</a>
+                                <br />
+                                <br />
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr style="font-family: 'Itim' ">
+                                            <th style="width: 10px">#</th>
+                                            <th>Yetenek</th>
+                                            <th>Derece</th>
+                                            <th style="width: 70px">Oran</th>
+                                            <th>Sil</th>
+                                            <th>Düzenle</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            if (item.Degree >= 0 && item.Degree <= 50)
+                                            {
+                                                color = "progress-bar progress-bar-striped bg-maroon";
+                                                labelColor = "badge bg-maroon";
+                                            }
+                                            if (item.Degree >= 51 && item.Degree <= 70)
+                                            {
+                                                color = "progress-bar progress-bar-striped bg-indigo";
+                                                labelColor = "badge bg-indigo";
+
+                                            }
+                                            if (item.Degree >= 71 && item.Degree <= 84)
+                                            {
+                                                color = "progress-bar progress-bar-striped bg-teal";
+                                                labelColor = "badge bg-teal";
+
+                                            }
+                                            if (item.Degree >= 85 && item.Degree <= 100)
+                                            {
+                                                color = "progress-bar progress-bar-striped bg-warning";
+                                                labelColor = "badge bg-warning";
+
+                                            }
+                                            <tr style="font-family:'The Great Escape'">
+                                                <td>@item.ID</td>
+                                                <td>@item.Skills</td>
+                                                <td>
+                                                    <div class="progress progress-xs">
+                                                        <div class="@color" style="width:@item.Degree%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="@labelColor" style="width:100%; height:500%;">
+                                                        @item.Degree %
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <a href="/Skills/RemoveSkills/@item.ID" class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-trash"></i>
+                                                        Sil
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="/Skills/UpdateSkills/@item.ID" class="btn btn-info btn-sm">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                        Düzenle
+                                                    </a>
+                                                </td>
+
+                                            </tr>
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                                @Html.PagedListPager((IPagedList)Model, number => Url.Action("Index", new { number }))
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</body>
+</html>

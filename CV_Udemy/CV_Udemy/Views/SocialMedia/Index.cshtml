@@ -1,0 +1,142 @@
+﻿@using CV_Udemy.Models.Entity
+@model List<TBL_SocialMedia>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{ string durum = ""; }
+@{ string color = "";}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link href="~/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jq-2.2.4/jszip-3.1.3/pdfmake-0.1.27/dt-1.10.15/b-1.3.1/b-colvis-1.3.1/b-flash-1.3.1/b-html5-1.3.1/b-print-1.3.1/r-2.1.1/sc-1.4.2/se-1.2.2/datatables.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title" style="font-family: 'Itim' ">Sosyal Medya</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <button class="btn btn-light" style="font-family:'The Great Escape'" data-toggle="modal" data-target="#Modal1">Sosyal Medya Ekle</button>
+                                <br />
+                                <br />
+                                <table id="tbl1" class="table table-bordered">
+                                    <thead>
+                                        <tr style="font-family: 'Itim' ">
+                                            <th style="width: 10px">#</th>
+                                            <th>Sosyal Medya</th>
+                                            <th>Durum</th>
+                                            <th>Sil</th>
+                                            <th>Düzenle</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            if (item.State == true)
+                                            {
+                                                durum = "Aktif";
+                                                color = "fa-regular fa-lock-open fa";
+                                            }
+                                            else
+                                            {
+                                                durum = "Pasif";
+                                                color = "fa-regular fa-lock fa";
+                                            }
+                                            <tr style="font-family:'The Great Escape'">
+                                                <td>@item.ID</td>
+                                                <td>@item.SocialMedia</td>
+                                                <td>
+                                                    <i class="@color"></i>
+                                                    <p class="font-weight-light">
+                                                        @durum
+                                                    </p>
+                                                </td>
+
+                                                <td>
+                                                    <a href="/SocialMedia/Remove/@item.ID" class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-trash"></i>
+                                                        Sil
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="/SocialMedia/PageGet/@item.ID" class="btn btn-info btn-sm">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                        Düzenle
+                                                    </a>
+                                                </td>
+
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section> @*section ın altına*@
+
+        <div class="modal" id="Modal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="font-family: 'Itim' ">
+                        <h2 class="modal-title">Sosyal Medya Ekleme Paneli</h2>
+                    </div>
+                    <form method="post" action="/SocialMedia/Add">
+                        <div class="modal-body">
+                            <label>Sosyal Medya</label>
+                            <input type="text" style="font-family:'The Great Escape'" name="SocialMedia" class="form-control" />
+                            <br />
+                            <label>Sosyal Medya Link</label>
+                            <input type="text" name="Link" style="font-family:'The Great Escape'" class="form-control" />
+                            <br />
+                            <label>Sosyal Medya İcon</label>
+                            <input type="text" name="Icon" style="font-family:'The Great Escape'" class="form-control" />
+                            <br />
+                            <button style="font-family:'The Great Escape'" id="btn1" class="btn btn-info">Ekle</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#tbl1').DataTable({
+                language: {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+                }
+            });
+        });
+    </script>
+    <script>
+        $('#btn1').click(function () {
+            swal("Harika!", "Sosyal Medya eklendi", "success");
+        })
+    </script>
+</body>
+</html>
+

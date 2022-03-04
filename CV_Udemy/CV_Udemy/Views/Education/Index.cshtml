@@ -1,0 +1,93 @@
+﻿@using CV_Udemy.Models.Entity
+@model List<TBL_Education>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title" style="font-family:'The Great Escape'">Eğitim Listem</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <a href="/Education/EducationNew/" style="font-family:'The Great Escape'" class="btn btn-light">Eğitim Ekle</a>
+                                <br />
+                                <br />
+                                <table id="tbl1" class="table table-bordered">
+                                    <thead>
+                                        <tr style="font-family: 'Itim' ">
+                                            <th style="width: 10px">#</th>
+                                            <th>Başlık </th>
+                                            <th>Alt Başlık</th>
+                                            <th>Alt Başlık 2</th>
+                                            <th>Genel Not Ortalaması (GNO)</th>
+                                            <th>Tarih</th>
+                                            <th>Sil</th>
+                                            <th>Düzenle</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+
+                                            <tr>
+                                                <td style="font-family:'The Great Escape'">@item.ID</td>
+                                                <td style="font-family:'The Great Escape'">@item.Title</td>
+                                                <td style="font-family:'The Great Escape'">@item.Subtitle</td>
+                                                <td style="font-family:'The Great Escape'">@item.Subtitle2</td>
+                                                <td style="font-family:'The Great Escape'">@item.GPA</td>
+                                                <td style="font-family:'The Great Escape'">@item.DateTime</td>
+                                                <td>
+                                                    <a href="/Education/EducationRemove/@item.ID" style="font-family:'The Great Escape'" class="btn btn-danger">
+                                                        @*<i class="fas fa-trash"></i>*@
+                                                        Sil
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="/Education/EducationGet/@item.ID" style="font-family:'The Great Escape'" class="btn btn-info">
+                                                        @*<i class="fas fa-pencil-alt"></i>*@
+                                                        Düzenle
+                                                    </a>
+                                                </td>
+
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link href="~/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            $('#tbl1').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿@using CV_Udemy.Models.Entity
+@model List<TBL_Experience>
+
+
+<div class="resume-section-content">
+    <h2 class="mb-5">Deneyimlerim</h2>
+    @foreach (var e in Model)
+    {
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+            <div class="flex-grow-1">
+                <div class="subheading mb-3">@e.Title</div>
+                @*<h4 class="mb-0">@e.Title</h4>*@
+                <h3 class="mb-0">@e.Subtitle</h3>
+                @*<div class="subheading mb-3">@e.Subtitle</div>*@
+                <p>@e.Description</p>
+            </div>
+            <div class="flex-shrink-0, font-weight-bold"><span class="text-primary">@e.DateTime</span></div>
+        </div>
+    }
+</div>
+

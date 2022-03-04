@@ -1,0 +1,31 @@
+﻿@model CV_Udemy.Models.Entity.TBL_Certificate
+
+@{
+    ViewBag.Title = "CertificateGet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+<h4 style="font-family: 'Itim' ">Sertifika & Ödüller Güncelleme Sayfası</h4>
+
+<form class="form-group" method="post">
+    <p style="font-family: 'Itim' ">ID</p>
+    @Html.TextBoxFor(x => x.ID, new { disabled = "disabled", @class = "form-control", @style = "font-family:'The Great Escape'" })
+    <br />
+    <p style="font-family: 'Itim' ">Ödüller & Sertifika</p>
+    @Html.TextBoxFor(x => x.Certificate, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    <br />
+    <p style="font-family: 'Itim' ">Ödül & Sertifika Seri Numarası</p>
+    @Html.TextBoxFor(x => x.Number, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    <br />
+    @*@Html.Label("Derece", new { @class = "form-control" })*@
+    <p style="font-family: 'Itim' ">Tarih</p>
+    @Html.TextBoxFor(x => x.Datetime, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    <br />
+    <button class="btn btn-success btn-sm" style="font-family:'The Great Escape'">
+        <i class="fas fa-pencil-alt"></i>
+        Güncelle
+    </button>
+
+</form>

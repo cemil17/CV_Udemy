@@ -1,0 +1,46 @@
+﻿@using CV_Udemy.Models.Entity
+@model List<TBL_About>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h4 style="font-family: 'Itim' ">Kişisel Bilgilerim</h4>
+<br />
+@using (Html.BeginForm("Index", "About", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <form method="post">
+        @foreach (var item in Model)
+        {
+            <label>Ad</label>
+            <input type="text" style="font-family:'The Great Escape'" class="form-control" name="Name" value="@item.Name">
+            <br />
+            <label>Soyad</label>
+            <input type="text" style="font-family:'The Great Escape'" class="form-control" name="Surname" value="@item.Surname">
+            <br />
+            <label>Adres</label>
+            <input type="text" style="font-family:'The Great Escape'" class="form-control" name="Address" value="@item.Address">
+            <br />
+            <label>Telefon</label>
+            <input type="text" style="font-family:'The Great Escape'" class="form-control" name="Phone" value="@item.Phone">
+            <br />
+            <label>Mail</label>
+            <input type="text" style="font-family:'The Great Escape'" class="form-control" name="Mail" value="@item.Mail">
+            <br />
+            <label>Resim</label>
+            <br />
+            <input type="file" style="font-family:'The Great Escape'" name="Image" class="fa-file-upload fa" value="@item.Image">
+            <br />
+            <br />
+            <label>Açıklama</label>
+            <textarea rows="7" style="font-family:'The Great Escape'" class="form-control" name="Description">@item.Description</textarea>
+
+        }
+        <br />
+        <button class="btn btn-info" style="font-family:'The Great Escape'">Güncelle</button>
+    </form>
+
+}
+

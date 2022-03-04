@@ -1,0 +1,26 @@
+﻿@model CV_Udemy.Models.Entity.TBL_Skills
+
+@{
+    ViewBag.Title = "UpdateSkills";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+<h4 style="font-family: 'Itim' ">Yetenek Güncelleme Sayfası</h4>
+
+<form class="form-group" method="post">
+    <p class="font-weight-bold">ID</p>
+    @Html.TextBoxFor(x => x.ID, new { disabled = "disabled", @class = "form-control", @style = "font-family:'The Great Escape'" })
+    <br />
+    <p style="font-family: 'Itim' ">Yetenek</p>
+    @Html.TextBoxFor(x => x.Skills, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    <br />
+    @*@Html.Label("Derece", new { @class = "form-control" })*@
+    <p style="font-family: 'Itim' ">Derece</p>
+    @Html.TextBoxFor(x => x.Degree, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    <br />
+    <button class="btn btn-success" style="font-family:'The Great Escape'">Güncelle</button>
+
+</form>
+

@@ -1,0 +1,38 @@
+﻿@model CV_Udemy.Models.Entity.TBL_Education
+@{
+    ViewBag.Title = "EducationNew";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4 style="font-family: 'Itim' ">Yeni Eğitim Sayfası</h4>
+
+<form class="form-group" method="post">
+
+
+    <br />
+    <p class="font-weight-bold" style="font-family: 'Itim' ">Başlık</p>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color:Red" })
+    <br />
+    <p class="font-weight-bold" style="font-family: 'Itim' ">Alt Başlık</p>
+    @Html.TextBoxFor(x => x.Subtitle, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    @Html.ValidationMessageFor(x => x.Subtitle, "", new { @style = "color:Red" })
+    <br />
+    <p class="font-weight-bold" style="font-family: 'Itim' ">Alt Başlık2</p>
+    @Html.TextBoxFor(x => x.Subtitle2, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    @Html.ValidationMessageFor(x => x.Subtitle2, "", new { @style = "color:Red" })
+    <br />
+    <p class="font-weight-bold" style="font-family: 'Itim' ">Genel Not Ortalaması (GNO)</p>
+    @Html.TextBoxFor(x => x.GPA, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    @Html.ValidationMessageFor(x => x.GPA, "", new { @style = "color:Red" })
+    <br />
+    <p class="font-weight-bold" style="font-family: 'Itim' ">Tarih</p>
+    @Html.TextBoxFor(x => x.DateTime, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    @Html.ValidationMessageFor(x => x.DateTime, "", new { @style = "color:Red" })
+    <br />
+    @*@Html.Label("Derece", new { @class = "form-control" })*@
+
+    <button class="btn btn-info" style="font-family:'The Great Escape'">Ekle</button>
+
+</form>

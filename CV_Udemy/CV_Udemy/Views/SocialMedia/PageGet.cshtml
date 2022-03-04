@@ -1,0 +1,27 @@
+﻿@model CV_Udemy.Models.Entity.TBL_SocialMedia
+
+@{
+    ViewBag.Title = "PageGet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+<h4 style="font-family: 'Itim' ">Sosyal Medya Güncelleme Sayfası</h4>
+
+<form class="form-group" method="post">
+    <p style="font-family: 'Itim' ">ID</p>
+    @Html.TextBoxFor(x => x.ID, new { disabled = "disabled", @class = "form-control" })
+    <br />
+    <p style="font-family: 'Itim' ">Sosyal Medya</p>
+    @Html.TextBoxFor(x => x.SocialMedia, new { @class = "form-control" })
+    <br />
+    <p style="font-family: 'Itim' ">Link</p>
+    @Html.TextBoxFor(x => x.Link, new { @class = "form-control" })
+    <br />
+    <p style="font-family: 'Itim' ">İcon</p>
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success" style="font-family:'The Great Escape'">Güncelle</button>
+
+</form>

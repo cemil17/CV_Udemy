@@ -1,0 +1,24 @@
+﻿@model CV_Udemy.Models.Entity.TBL_TodoList
+
+@{
+    ViewBag.Title = "UTodo";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4 style="font-family: 'Itim' ">Update Todo-List</h4>
+
+<form class="form-group" method="post">
+
+    <p style="font-family: 'Itim' ">ID</p>
+
+    @Html.TextBoxFor(x => x.ID, new { disabled = "disabled", @class = "form-control", @style = "font-family:'The Great Escape'" })
+    <br />
+    <p style="font-family: 'Itim' ">Açıklama</p>
+
+    @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @Rows = "6", @style = "font-family:'The Great Escape'" })
+    <br />
+    <button class="btn btn-info" style="font-family:'The Great Escape'">Güncelle</button>
+
+</form>
+

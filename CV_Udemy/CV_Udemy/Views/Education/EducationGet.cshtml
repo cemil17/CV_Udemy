@@ -1,0 +1,38 @@
+﻿@model CV_Udemy.Models.Entity.TBL_Education
+
+@{
+    ViewBag.Title = "EducationGet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h4 style="font-family: 'Itim' ">Eğitim Güncelleme Sayfası</h4>
+
+<form class="form-group" method="post">
+
+
+    <br />
+    <p style="font-family: 'Itim' ">Başlık</p>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    @Html.ValidationMessageFor(x => x.Title, "", new { @style = "color:Red" })
+    <br />
+    <p style="font-family: 'Itim' ">Alt Başlık</p>
+    @Html.TextBoxFor(x => x.Subtitle, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    <br />
+    <p style="font-family: 'Itim' ">Alt Başlık2</p>
+    @Html.TextBoxFor(x => x.Subtitle2, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    <br />
+    <p style="font-family: 'Itim' ">Genel Not Ortalaması (GNO)</p>
+    @Html.TextBoxFor(x => x.GPA, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    @Html.ValidationMessageFor(x => x.GPA, "", new { @style = "color:purple" })
+
+    <br />
+    <p style="font-family: 'Itim' ">Tarih</p>
+    @Html.TextBoxFor(x => x.DateTime, new { @class = "form-control", @style = "font-family:'The Great Escape'" })
+    <br />
+    @*@Html.Label("Derece", new { @class = "form-control" })*@
+
+    <button class="btn btn-info" style="font-family:'The Great Escape'">Ekle</button>
+
+</form>
+

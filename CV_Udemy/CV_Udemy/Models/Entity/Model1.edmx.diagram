@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eb9e1fba60ce40c5b32f43720bd58f1d" Name="Diagram1">
+        <EntityTypeShape EntityType="CV_SiteModel.TBL_About" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CV_SiteModel.TBL_Admin" Width="1.5" PointX="2.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CV_SiteModel.TBL_Certificate" Width="1.5" PointX="0.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CV_SiteModel.TBL_Contact" Width="1.5" PointX="4.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CV_SiteModel.TBL_Education" Width="1.5" PointX="2.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CV_SiteModel.TBL_Experience" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CV_SiteModel.TBL_Hobby" Width="1.5" PointX="4.625" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CV_SiteModel.TBL_Skills" Width="1.5" PointX="2.25" PointY="5.25" />
+        <EntityTypeShape EntityType="CV_SiteModel.TBL_SocialMedia" Width="1.5" PointX="4.375" PointY="5.75" />
+        <EntityTypeShape EntityType="CV_SiteModel.TBL_TodoList" Width="1.5" PointX="6.5" PointY="3.625" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

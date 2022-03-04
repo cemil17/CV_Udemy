@@ -1,0 +1,73 @@
+﻿@using CV_Udemy.Models.Entity
+@model List<TBL_Admin>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title" style="font-family: 'Itim' ">Admin</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <br />
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr style="font-family: 'Itim' ">
+                                            <th style="width: 10px">#</th>
+                                            <th>Kullanıcı Adı</th>
+                                            <th>Düzenle</th>
+                                            <th>Kaldır</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+
+                                            <tr style="font-family:'The Great Escape'">
+                                                <td>@item.ID</td>
+                                                <td>@item.Username</td>
+
+                                                <td>
+                                                    <a href="/Admin/AdminGet/@item.ID" class="btn btn-warning">
+                                                        @*<i class="fas fa-pencil-alt"></i>*@
+                                                        Düzenle
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="/Admin/Remove/@item.ID" class="btn btn-danger">
+                                                        @*<i class="fas fa-trash"></i>*@
+                                                        Kaldır
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <a href="/Admin/New/" style="font-family:'The Great Escape'" class="btn btn-primary">Admin Ekle</a>
+
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</body>
+</html>

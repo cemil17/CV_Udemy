@@ -1,0 +1,21 @@
+﻿@using CV_Udemy.Models.Entity
+@model List<TBL_Hobby>
+
+<div class="resume-section-content">
+    <h2 class="mb-5">Hobilerim</h2>
+    <ul class="fa-ul mb-0">
+        @foreach (var hobby in Model)
+        {
+            @*<p class="font-weight-bold">@hobby.Description</p>*@
+            @*<p class="mb-0">@hobby.Description2</p>*@
+
+            <li>
+                <span class="fa-li">
+                    <i class="fa-solid fa-share fa"></i>
+                </span>
+                - @hobby.Description
+
+            </li>
+        }
+    </ul>
+</div>

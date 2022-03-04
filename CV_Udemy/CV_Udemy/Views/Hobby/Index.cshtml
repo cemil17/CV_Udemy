@@ -1,0 +1,81 @@
+﻿@using CV_Udemy.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<TBL_Hobby>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title" style="font-family: 'Itim' ">Hobi Listem</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <a href="/Hobby/NewHobby/" style="font-family:'The Great Escape'"
+                                   class="btn btn-light">Hobi Ekle</a>
+                                <br />
+                                <br />
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr style="font-family: 'Itim' ">
+                                            <th style="width: 10px">#</th>
+                                            <th>Hobi</th>
+                                            <th>Sil</th>
+                                            <th>Düzenle</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+
+                                            <tr style="font-family:'The Great Escape'">
+                                                <td>@item.ID</td>
+                                                <td>@item.Description</td>
+                                                <td>
+                                                    <a href="/Hobby/RemoveHobby/@item.ID" class="btn btn-danger">
+                                                        @*<i class="fas fa-trash"></i>*@
+                                                        Sil
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a href="/Hobby/UpdateHobby/@item.ID" class="btn btn-info">
+                                                        @*<i class="fas fa-pencil-alt"></i>*@
+                                                        Düzenle
+                                                    </a>
+                                                </td>
+
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                                @Html.PagedListPager((IPagedList)Model, number => Url.Action("Index", new { number }))
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</body>
+</html>

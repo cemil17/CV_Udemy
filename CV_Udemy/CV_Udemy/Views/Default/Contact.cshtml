@@ -1,0 +1,31 @@
+﻿@model CV_Udemy.Models.Entity.TBL_Contact
+
+<div class="resume-section-content">
+    <form method="post">
+
+        <h2 class="mb-5">Bana Ulaşın</h2>
+
+        <label>Ad</label>
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Name, "", new { @style = "color:Red" })
+        <br />
+        <label>Soyad</label>
+        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Surname, "", new { @style = "color:Red" })
+        <br />
+        <label>Mail</label>
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Mail, "", new { @style = "color:Red" })
+        <br />
+        <label>Konu</label>
+        @Html.TextBoxFor(x => x.Topic, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Topic, "", new { @style = "color:Red" })
+        <br />
+        <label>Mesaj</label>
+        <textarea rows="10" type="text" name="Message" class="form-control"></textarea>
+        @Html.ValidationMessageFor(x => x.Message, "", new { @style = "color:Red" })
+        <br />
+        <button class="btn btn-info">Mesaj Gönder</button>
+
+    </form>
+</div>

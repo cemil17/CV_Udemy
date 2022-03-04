@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<div>
+    @using (Html.BeginForm("Index", "QR", FormMethod.Post))
+    {
+        <input type="text" name="code" class="form-control is-warning" />
+        <br />
+        <input type="submit" value="Create QR" class="btn btn-warning" />
+    }
+    <br />
+    @if (ViewBag.CoderQR != null)
+    {
+        <img src="@ViewBag.CoderQR" alt="" style="width:400px; height:400px;" />
+    }
+</div>
